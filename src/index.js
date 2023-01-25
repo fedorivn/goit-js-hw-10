@@ -65,7 +65,7 @@ console.log(' -->', country.languages);
 }
 
 function handleCountryInput() {
-    if (inputEl.value === ' '){
+    if (inputEl.value.trim() === ''){
         Notify.info('Please enter a search request.');
         return
     } else{ 
