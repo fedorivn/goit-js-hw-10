@@ -65,6 +65,10 @@ console.log(' -->', country.languages);
 }
 
 function handleCountryInput() {
+    if (inputEl.value === ' '){
+        Notify.info('Please enter a search request.');
+        return
+    } else{ 
     fetchCountries(inputEl.value.trim())
     .then(data=>{
         if (data.length > 10){
@@ -85,5 +89,5 @@ function handleCountryInput() {
     countryListEl.innerHTML= '';
     countryInfoEl.innerHTML = '';
     Notify.failure('Oops, there is no country with that name')})
-}
+}}
 inputEl.addEventListener('input', debounce(handleCountryInput, DEBOUNCE_DELAY));
